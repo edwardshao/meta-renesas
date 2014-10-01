@@ -22,6 +22,14 @@ do_compile[noexec] = "1"
 do_install () {
     install -d ${D}/${libdir}
     cp -rf ${S}/${libdir}/* ${D}/${libdir}/
+
+    # Currently, libpvrPVR2D_WAYLANDWSEGL.so.0.0.0 requires libudev.so.0,
+    # but systemd is registered as shlib provider for libudev.so.1
+    # Following hack allows us to have our package register itself as a provider for libudev.so.0
+    mkdir -p ${D}/lib
+    ${CC} -shared -Wl,-soname,libudev.so.0 -o libfake.so.0
+    cp ${S}/libfake.so.0 ${D}/lib/
+    ln -sf /lib/libudev.so.1.4.1 ${D}/lib/libudev.so.0
 }
 
 PACKAGES = "\
@@ -30,7 +38,7 @@ PACKAGES = "\
     ${PN}-staticdev \
 "
 
-FILES_${PN} = "${libdir}/*.so.*"
+FILES_${PN} = "${libdir}/*.so.* /lib/*"
 FILES_${PN}-dev = "${libdir}/*.so ${libdir}/*.la"
 FILES_${PN}-staticdev = "${libdir}/*.a"
 
