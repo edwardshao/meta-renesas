@@ -61,6 +61,8 @@ do_install() {
     cp -r ${S}/usr ${D}
 
     if [ "${USE_WAYLAND}" = "yes" ]; then
+        #remove X11 test binaries
+        rm ${D}/usr/local/bin/eglinfo ${D}/usr/local/bin/gl*
         # Install additional file
         mkdir -p ${D}/usr/lib/pkgconfig/
         install -m 0644 ${WORKDIR}/${GLES}-user-module.pc ${D}/usr/lib/pkgconfig/
