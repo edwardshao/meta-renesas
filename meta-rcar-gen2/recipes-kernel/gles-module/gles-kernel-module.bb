@@ -49,7 +49,7 @@ export KERNELDIR = "${STAGING_KERNEL_DIR}"
 export LDFLAGS=""
 export CP = "cp"
 
-python do_package_ipk_prepend () {
+python do_package_prepend () {
     d.setVar('ALLOW_EMPTY', '1')
 }
 
