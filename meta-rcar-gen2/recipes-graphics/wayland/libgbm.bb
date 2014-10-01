@@ -17,7 +17,6 @@ inherit autotools pkgconfig
 # FILES_${PN} += "${libdir}/gbm/libgbm_kms.so.*"
 FILES_${PN} = "${libdir}/libgbm.so.* ${libdir}/gbm/libgbm_kms.so.*"
 FILES_${PN}-dev += "${libdir}/gbm/*.so ${libdir}/gbm/*.la"
-FILES_${PN}-dev += "${libdir}/gbm/*.so ${libdir}/gbm/*.la"
 FILES_${PN}-dbg += "${libdir}/gbm/.debug/*"
 FILES_${PN}-staticdev += "${libdir}/gbm/*.a"
 
