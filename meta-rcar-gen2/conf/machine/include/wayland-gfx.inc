@@ -6,3 +6,5 @@ PREFERRED_PROVIDER_virtual/libgl = ""
 PREFERRED_PROVIDER_virtual/mesa = ""
 PREFERRED_PROVIDER_libgbm = "libgbm"
 PREFERRED_PROVIDER_libgbm-dev = "libgbm"
+
+BBMASK .= "|meta-renesas/common/recipes-graphics/wayland"
