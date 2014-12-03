@@ -5,6 +5,8 @@ LIC_FILES_CHKSUM = "file://egl.c;beginline=5;endline=15;md5=3677623633a6e459b1f6
 COMPATIBLE_MACHINE = "(r8a7790|r8a7791|r8a7793|r8a7794)"
 
 PROVIDES = "${@base_contains("DISTRO_FEATURES", "wayland", "virtual/egl", "", d)}"
+RPROVIDES_${PN} = "libEGL.so"
+
 SRCREV = "71938547dc14393dc7ce77a48a23180056faf6a3"
 SRC_URI = "git://github.com/thayama/libegl;protocol=git;branch=master"
 SRC_URI_append_r8a7790 = " file://Makefile.am.rgx.patch \
