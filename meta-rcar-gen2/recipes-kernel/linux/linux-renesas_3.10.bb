@@ -85,7 +85,7 @@ SRC_URI_append_lcb = " \
 
 SRC_URI_append_porter = " \
     file://can.cfg \
-    file://enable-adv7511-dvi-output.cfg
+    file://enable-adv7511-dvi-output.cfg \
 "
 
 SRC_URI_append_stout = " file://stout.cfg"
