@@ -83,7 +83,11 @@ SRC_URI_append_lcb = " \
     file://stout/07-r8a7790-stout/0020-arm-rmobile-Add-R8A7790-stout-board-support.patch \
 "
 
-SRC_URI_append_porter = " file://can.cfg"
+SRC_URI_append_porter = " \
+    file://can.cfg \
+    file://enable-adv7511-dvi-output.cfg
+"
+
 SRC_URI_append_stout = " file://stout.cfg"
 
 USE_FAYTECH_MONITOR ?= "0"
